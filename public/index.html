@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo de HotSite</title>
+    <meta name="description" content="Modelo de site Promocional">
+    <link rel="icon" href="img/changcriativo.jpg">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div class="background">
+        <div class="overlay"></div>
+        <div class="content">
+            <h1>HotSite</h1>
+            <hr class="blue-bar">
+            <p>São sites promocionais, destinados e focado em uma marca, campanha, projetos, serviços e ou instuições
+                com variados conteúdos e finalidades.</p>
+            <div class="more-galleries">
+                <button>MAIS GALERIAS</button>
+            </div>
+        </div>
+        <h2>Formulário de Contato</h2>
+        <div class="contact-form">            
+            <form id="contact-form" action="/submit-form" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="name">Nome:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="cellphone">Celular:</label>
+                    <input type="text" id="cellphone" name="cellphone" required>
+                </div>
+                <div class="form-group">
+                    <label for="service">Serviço Desejado:</label>
+                    <select id="service" name="service">
+                        <option value="WEB DESIGNER">Web Design</option>
+                        <option value="SEO">SEO</option>
+                        <option value="MARKETING">Marketing Digital</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="description">Descreva o que precisa:</label>
+                    <textarea id="description" name="description" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="date">Data:</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="photo">Envie uma foto (JPG/JPEG):</label>
+                    <input type="file" id="photo" name="photo" accept=".jpg, .jpeg">
+                </div>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>
