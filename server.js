@@ -65,6 +65,7 @@ const upload = multer({
     }
 });
  */
+
 // Middleware para logar todas as requisições
 app.use((req, res, next) => {
     console.log(`${req.method} ${req.url}`);
@@ -77,8 +78,8 @@ app.get('/', (req, res) => {
 });
 
 // Rota para servir o painel de visualização
-app.get('/painel', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'painel.html'));
+app.get('/contatos', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'contatos.html'));
 });
 
 // Rota para receber o formulário preenchido
@@ -138,8 +139,8 @@ app.get('/api/data', (req, res) => {
 });
 
 // Rota para servir o painel de controle
-app.get('/admin', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'admin.html'));
+app.get('/postagens', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'postagens.html'));
 });
 
 // Rota para receber os arquivos de mídia
@@ -153,7 +154,7 @@ app.post('/upload', upload.single('media'), (req, res) => {
     const sql = 'INSERT INTO media (type, file_path, caption) VALUES (?, ?, ?)';
     db.query(sql, [type, file_path, caption], (err, result) => {
         if (err) throw err;
-        res.redirect('/admin');
+        res.redirect('/postagens');
     });
 });
 
