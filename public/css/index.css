@@ -12,7 +12,7 @@ html {
 
 .background {
   position: relative;
-  height: 100vh;
+  height: 98%;
   background: url('../img/background.png') no-repeat center center/cover;
 }
 
@@ -22,7 +22,7 @@ html {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6);
 }
 
 .content {
@@ -94,6 +94,15 @@ hr.blue-bar {
 /* Estilo do título */
 h2 {
   text-align: center;
+  font-size: 50px;
+}
+
+.formulario {
+  background: #fff;
+  max-width: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Estilo do formulário */
@@ -156,9 +165,35 @@ button:hover {
 }
 
 #media-section {
-  margin-top: 2em;
+  margin-top: 10px;
 }
 
+/* Itens da galeria */
+#media-gallery div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 90px;
+  border-bottom: 1px solid #ccc;
+}
+
+#media-gallery img {
+  width: 30%;
+  height: auto;
+}
+
+#media-gallery video {
+  width: 70%;
+  height: auto;
+}
+
+#media-gallery p {
+  font-size: 30px;
+  text-shadow: 0px 5px 10px #000,
+    0px 10px 10px rgba(0, 0, 0, 0.15),
+    0px 15px 15px rgba(0, 0, 0, 0.1),
+    0px 20px 20px rgba(0, 0, 0, 0.1);
+}
 
 /* Estilo responsivo para telas menores */
 @media (max-width: 768px) {
