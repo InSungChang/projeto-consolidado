@@ -1,0 +1,82 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  margin: 30px 10px 10px 10px;
+  /* text-shadow: 5px 5px 5px rgb(78, 78, 78); */
+  text-shadow: 0px 5px 10px #000,
+    0px 10px 10px rgba(0, 0, 0, 0.15),
+    0px 15px 15px rgba(0, 0, 0, 0.1),
+    0px 20px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo do formulário */
+form {
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* Estilo dos rótulos */
+label {
+  display: block;
+  margin: 10px 0 5px;
+}
+
+/* Estilo dos campos de entrada, seleção e área de texto */
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Estilo do botão */
+form button {
+  background: #727373;
+  color: #fff;
+  border: none;
+  padding: 15px;
+  margin-top: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Efeito de hover no botão */
+button:hover {
+  background: #444445;
+}
+
+header {
+  width: 100%;
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 20px;
+}

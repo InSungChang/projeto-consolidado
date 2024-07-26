@@ -65,7 +65,7 @@ hr.blue-bar {
   margin: 40px 0;
 }
 
-.more-galleries button {
+.more-galleries a {
   padding: 10px 20px;
   background-color: rgba(0, 0, 0, 0);
   ;
@@ -76,6 +76,7 @@ hr.blue-bar {
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
+  text-decoration: none;
 }
 
 /* Estilo geral do corpo */
@@ -149,56 +150,15 @@ button:hover {
   background: #444445;
 }
 
-header {
-  width: 100%;
-  background-color: black;
-  color: white;
-  text-align: center;
-  padding: 10px 0;
-}
-
-main {
-  display: flex;
-  width: 100%;
-  max-width: 1200px;
-  margin: 20px;
-}
-
-#filter-section {
-  flex: 1;
-}
-
-#data-list-section {
-  flex: 3;
-  overflow-y: auto;
-  max-height: 600px;
-  padding-left: 50px;
-}
-
-#data-list {
-  list-style: none;
-  padding: 0;
-}
-
-#data-list li {
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
-}
-
-#details-section {
-  flex: 3;
-  padding: 5px;
-  padding-left: 50px;
-  font-family: Arial, sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
 #photo {
   max-width: 100%;
   height: auto;
 }
+
+#media-section {
+  margin-top: 2em;
+}
+
 
 /* Estilo responsivo para telas menores */
 @media (max-width: 768px) {

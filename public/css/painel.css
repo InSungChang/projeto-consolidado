@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  margin: 30px 10px 10px 10px;
+  /* text-shadow: 5px 5px 5px rgb(78, 78, 78); */
+  text-shadow: 0px 5px 10px #000,
+    0px 10px 10px rgba(0, 0, 0, 0.15),
+    0px 15px 15px rgba(0, 0, 0, 0.1),
+    0px 20px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo dos campos de entrada, seleção e área de texto */
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+
+header {
+  width: 100%;
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+}
+
+main {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  margin: 20px;
+}
+
+#filter-section {
+  flex: 1;
+}
+
+#data-list-section {
+  flex: 3;
+  overflow-y: auto;
+  max-height: 600px;
+  padding-left: 50px;
+}
+
+#data-list {
+  list-style: none;
+  padding: 0;
+}
+
+#data-list li {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+#details-section {
+  flex: 3;
+  padding: 5px;
+  padding-left: 50px;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#photo {
+  max-width: 100%;
+  height: auto;
+}
+
+#filter-section button {
+  background: #727373;
+  color: #fff;
+  border: none;
+  padding: 15px;
+  margin-top: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  background: #444445;
+}

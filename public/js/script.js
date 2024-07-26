@@ -6,8 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const photo = document.getElementById('photo');
 
     // Função para buscar dados do backend
-    async function fetchData() {
-        const response = await fetch('/api/data');
+    async function fetchData(url) {
+        const response = await fetch(url);
         const data = await response.json();
         return data;
     }
@@ -60,10 +60,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Evento para visualizar todos os dados
     viewAllButton.addEventListener('click', async () => {
-        const data = await fetchData();
+        const data = await fetchData('/api/data');
         renderList(data);
     });
 
     // Carregar os dados ao iniciar
-    fetchData().then(renderList);
+    fetchData('/api/data').then(renderList);
+
 });

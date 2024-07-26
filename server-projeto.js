@@ -10,10 +10,16 @@ const rateLimit = require('express-rate-limit');
 const multer = require('multer');
 const path = require('path');
 const moment = require('moment-timezone');
-const fs = require('fs');
 
 const app = express();
-const port = 3000;
+/* const app = express();
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+ */
+app.use(bodyParser.json());
+app.use(helmet());
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Configuração do banco de dados
 const db = mysql.createConnection({
@@ -28,11 +34,6 @@ db.connect(err => {
     if (err) throw err;
     console.log('Conectado ao banco de dados.');
 });
-
-app.use(bodyParser.json());
-app.use(helmet());
-app.use(express.static(path.join(__dirname, 'public')));
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 const limiter = rateLimit({
     windowMs: 15 * 60 * 1000,
@@ -51,10 +52,10 @@ const storage = multer.diskStorage({
     }
 });
 
-const upload = multer({
-    storage: storage
-});
 /* const upload = multer({
+    storage: storage
+}); */
+const upload = multer({
     storage: storage,
     fileFilter: function (req, file, cb) {
         if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/jpg') {
@@ -64,12 +65,12 @@ const upload = multer({
         }
     }
 });
- */
+
 // Middleware para logar todas as requisições
 app.use((req, res, next) => {
     console.log(`${req.method} ${req.url}`);
     next();
-});
+  });
 
 // Rota para servir o formulário HTML
 app.get('/', (req, res) => {
@@ -90,7 +91,7 @@ app.post('/submit-form', upload.single('photo'), [
     body('cellphone').trim().isLength({
         min: 10,
         max: 20
-    }).escape(),
+    }).escape(), // Ajuste na validação do cellphone
     body('service').trim().isIn(['WEB DESIGNER', 'SEO', 'MARKETING']).escape(),
     body('description').trim().isLength({
         min: 1
@@ -121,10 +122,9 @@ app.post('/submit-form', upload.single('photo'), [
 
     db.query(sql, [name, email, cellphone, service, description, formattedDate, photo], (err, result) => {
         if (err) throw err;
-/*         res.json({
+        res.json({
             message: 'Dados armazenados com sucesso.'
-        }); */
-        res.redirect('/');
+        });
     });
 });
 
@@ -161,28 +161,17 @@ app.post('/upload', upload.single('media'), (req, res) => {
 app.get('/api/media', (req, res) => {
     const sql = 'SELECT * FROM media ORDER BY created_at DESC';
     db.query(sql, (err, results) => {
-        if (err) {
-            console.error('Erro ao obter mídia do banco de dados:', err);
-            res.status(500).send('Erro ao obter a mídia.');
-            return;
-        }
-        console.log(results);
-        res.json(results);
+      if (err) {
+        console.error('Erro ao obter mídia do banco de dados:', err);
+        res.status(500).send('Erro ao obter a mídia.');
+        return;
+      }
+      console.log(results);
+      res.json(results);
     });
-});
-
-// Rota para obter dados da tabela 'media'
-app.get('/data', (req, res) => {
-    let sql = 'SELECT * FROM media';
-    db.query(sql, (err, results) => {
-        if (err) {
-            throw err;
-        }
-        res.json(results);
-    });
-});
+  });
 
 // Iniciar o servidor
-app.listen(port, () => {
-    console.log(`Servidor rodando em http://localhost:${port}`);
+app.listen(3000, () => {
+    console.log('Servidor rodando na porta 3000');
 });
